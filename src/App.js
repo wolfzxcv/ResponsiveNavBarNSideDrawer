@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react' 
+import styled from 'styled-components' 
+import PropTypes from 'prop-types'
+import Toolbar from './Components/Toolbar' 
+import SideDrawer from './Components/SideDrawer' 
+import Backdrop from './Components/Backdrop'
+import GlobalStyle from './theme/GlobalStyle'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+const handleDrawerOpen = props => {
+  const [ toggle , setToggle] = React.useState(false);
+  return { props => setToggle( !toggle)}
+}  
+
+const App = ({className}) => (
+        
+     <div className={className}>
+     <GlobalStyle />
+     <Toolbar />
+     { toggle ? <SideDrawer /><Backdrop />  : ''}       
+     <main className='content'><p>This is the page content!</p></main>
     </div>
   );
-}
+ 
+  App.propTypes = {
+    className: PropTypes.string
+  }
+  
+  const StyledApp = styled(App)`
+  .content{
+    margin-top: 64px;
+  }
+  `
+StyledApp.displayName = 'App'
 
-export default App;
+export default StyledApp;
