@@ -12,7 +12,8 @@ const App = ({className}) => (
      <div className={className}>
      <GlobalStyle />
      <Toolbar />
-       
+     <SideDrawer /> 
+     <Backdrop />
      <main className='content'><p>This is the page content!</p></main>
     </div>
   );
