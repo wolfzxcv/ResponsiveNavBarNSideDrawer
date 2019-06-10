@@ -4,11 +4,11 @@ import PropTypes from 'prop-types'
 import DrawerToggleButton from '../SideDrawer/DrawerToggleButton'
 
 
-const Toolbar = ({className}) => (
+const Toolbar = ({className, drawerHandler}) => (
   <header className={className}>
     <nav className='toolbar_nav'>
-    <div>
-      <DrawerToggleButton />
+    <div className='toggle_button'>
+      <DrawerToggleButton click={drawerHandler} />
     </div>
       <div className='toolbar_logo'>
         <a href="/">
@@ -90,10 +90,21 @@ const StyledToolbar = styled(Toolbar)`
     &:hover, &:active {
     color: #fa923f;
     }
-
   }
-  
-   
+
+  @media (max-width: 768px)  {
+    .toolbar {
+      display: none;
+    }
+  }   
+
+  @media (min-width: 769px) {
+    .toggle_button {
+      display: none;
+    }
+    .toolbar_logo{
+    margin-left: 0;
+  }
 `
  
 StyledToolbar.displayName = 'Toolbar'

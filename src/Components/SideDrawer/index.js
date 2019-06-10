@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components' 
 import PropTypes from 'prop-types'
 
-const SideDrawer = ({className}) =>(
+const SideDrawer = ({className, drawerOpen}) =>(
   <nav className={className}>
       <ul>
         <li>
@@ -32,13 +32,14 @@ SideDrawer.propTypes = {
 const StyledSideDrawer = styled(SideDrawer)`
   height: 100%;
   background: white;
-  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
   left: 0;
   width: 70%;
   max-width: 400px;
   z-index: 200;
+
 
   ul{
     height: 100%;
@@ -60,6 +61,10 @@ const StyledSideDrawer = styled(SideDrawer)`
     &:hover, &:active {
     color: #fa923f;
     }
+  }
+
+  @media (min-width: 769px){
+    display: none;
   }
 `
 StyledSideDrawer.displayName = 'SideDrawer'

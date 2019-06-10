@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components' 
 import PropTypes from 'prop-types'
 
-const DrawerToggleButton = ({className}) =>(
-  <button className={className}>
+const DrawerToggleButton = ({className, click}) =>(
+  <button className={className} onClick={click}>
     <div className='line' />
     <div className='line' />
     <div className='line' />

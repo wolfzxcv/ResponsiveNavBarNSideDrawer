@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components' 
 import PropTypes from 'prop-types'
 
-const Backdrop = ({className}) => (
- <div className={className} />
+const Backdrop = ({className, click}) => (
+ <div className={className} onClick={click} />
 )
 
 Backdrop.propTypes = {
