@@ -1,8 +1,8 @@
 import React from 'react' 
-import styled from 'styled-components' 
+import styled, {css} from 'styled-components' 
 import PropTypes from 'prop-types'
 
-const SideDrawer = ({className, drawerOpen}) =>(
+const SideDrawer = ({className}) =>(
   <nav className={className}>
       <ul>
         <li>
@@ -39,7 +39,13 @@ const StyledSideDrawer = styled(SideDrawer)`
   width: 70%;
   max-width: 400px;
   z-index: 200;
-
+  ${ props => props.show? 
+    css`transform: translateX(0);
+        transition: transform 0.3s ease-out;`
+  : css`transform: translateX(-100%);
+        transition: transform 0.3s ease-in;` 
+  }  
+    
 
   ul{
     height: 100%;
@@ -63,8 +69,8 @@ const StyledSideDrawer = styled(SideDrawer)`
     }
   }
 
-  @media (min-width: 769px){
-    display: none;
+  @media(min-width: 769px){
+    display : none;
   }
 `
 StyledSideDrawer.displayName = 'SideDrawer'

@@ -19,7 +19,7 @@ const App = ({className}) => {
      <div className={className}>
      <GlobalStyle />
      <Toolbar drawerHandler={drawerOpenHandler} />
-     {drawerOpen && <SideDrawer />}
+     <SideDrawer show={drawerOpen} /> 
      {drawerOpen && <Backdrop click={backdropClickHandler} />}
      <main className='content'><p>This is the page content!</p></main>
     </div>
